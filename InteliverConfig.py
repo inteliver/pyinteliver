@@ -1,3 +1,8 @@
+# This is the class used for setting and getting cloudname and token
+# You need both cloudname and token set to upload a file
+# with only cloudname set you will be able to get data
+
+
 class InteliverConfig:
     def __init__(self, cloudname=None, token=None):
         self._cloudname = cloudname
