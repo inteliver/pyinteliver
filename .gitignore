@@ -1,0 +1,4 @@
+*.pyc
+test_data/*
+.idea/
+test_up.py
