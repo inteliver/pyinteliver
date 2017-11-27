@@ -42,3 +42,45 @@ If uploaded successfully you will receive a **json** file with following format.
 `{'success': True, 'message': 'Successfully uploaded.', 'resource_key': key}`
 
 `resource_key` is a unique key which able you to receive your data later. 
+
+#### <i class="icon-upload"></i> Retrieve Data
+Using InteliverRetrieve class you can **build the URL** of the data you need to get from Inteliver.
+Some of our on-the-fly features for manuplating images are as follow:
+> - Resize
+> - Blur
+> - Crop
+> - Rotate 
+> - Flip
+> - Sharpen
+>- Change image format
+>- Grayscale
+>- Pixalate
+>- Face focus
+
+You can find out more at [Inteliver Docs](https://docs.inteliver.com).
+To retrieve your data first set your **config** object.
+
+```python
+from InteliverConfig import InteliverConfig
+config = InteliverConfig(cloudname=your-cloudname)
+```
+> **Note:**
+> - Note that for retrieving data you only need your **cloudname** to be set.
+
+After setting your config object, build an InteliverRetrieve object.
+```python
+from InteliverConfig import InteliverConfig
+from InteliverRetrieve import InteliverRetrieve
+rt = InteliverRetrieve(config)
+```
+All the manuplation are sequentional. for example lets say you want to **select the main face** in picture **resize** it to 200 and 200 and keep the original ratio and to **crop** the image in a rounded shape and change the **format** to png and build the url. 
+```python
+    rt.select_face()
+    rt.select('height', 200)
+    rt.select('width', 200)
+    rt.image_crop(round_crop=True)
+    rt.image_change_format('PNG')
+    url_to_get = rt.build_url(your_resource_key)
+```
+This will build a url like this:
+**res.inteliver.com/media/v1/yourcloudname/i_c_face,i_h_200,i_w_200,i_o_resize_keep,i_o_rcrop,i_o_format_png/resourcekey.jpg**
