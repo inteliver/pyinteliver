@@ -42,7 +42,6 @@ If uploaded successfully you will receive a **json** file with following format.
 `{'success': True, 'message': 'Successfully uploaded.', 'resource_key': key}`
 
 `resource_key` is a unique key which able you to receive your data later. 
-Hey! I'm your first Markdown document in **StackEdit**[^stackedit]. Don't delete me, I'm very helpful! I can be recovered anyway in the **Utils** tab of the <i class="icon-cog"></i> **Settings** dialog.
 
 ----------
 
